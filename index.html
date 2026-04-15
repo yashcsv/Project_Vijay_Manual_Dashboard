@@ -8,20 +8,6 @@
   </head>
   <body>
     <div id="root"></div>
-    <script type="module">
-      const pagesBase = '/Project_Vijay_Manual_Dashboard'
-
-      import('/src/main.jsx').catch(async () => {
-        const cssHref = `${pagesBase}/assets/app.css`
-        if (!document.querySelector(`link[href="${cssHref}"]`)) {
-          const link = document.createElement('link')
-          link.rel = 'stylesheet'
-          link.href = cssHref
-          document.head.appendChild(link)
-        }
-
-        await import(`${pagesBase}/assets/app.js`)
-      })
-    </script>
+    <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
