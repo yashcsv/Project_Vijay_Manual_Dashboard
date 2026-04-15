@@ -3,7 +3,6 @@ import { dashboardData } from './data/dashboardData'
 import { useScrollSpy } from './hooks/useScrollSpy'
 import { useTheme } from './hooks/useTheme'
 import Navbar from './components/layout/Navbar'
-import Sidebar from './components/layout/Sidebar'
 import MobileNav from './components/layout/MobileNav'
 import ScrollProgress from './components/layout/ScrollProgress'
 import BackToTop from './components/layout/BackToTop'
@@ -27,18 +26,15 @@ function DashboardPage() {
       <div className="noise-overlay" />
       <ScrollProgress />
       <Navbar sections={dashboardData.sections} />
-      <div className="section-shell mt-8 flex gap-6">
-        <Sidebar sections={dashboardData.sections} />
-        <main className="min-w-0 flex-1">
-          <HeroSection meta={dashboardData.meta} kpis={dashboardData.kpis} />
-          <InsightsSection insights={dashboardData.insights} />
-          <DataNumbersSection charts={dashboardData.charts} rows={dashboardData.metricsTable} />
-          <ArchitectureSection />
-          <RisksSection risks={dashboardData.risks} />
-          <HiddenSignalsSection hiddenSignals={dashboardData.hiddenSignals} />
-          <VerdictSection verdict={dashboardData.verdict} />
-        </main>
-      </div>
+      <main className="mt-8">
+        <HeroSection meta={dashboardData.meta} kpis={dashboardData.kpis} />
+        <InsightsSection insights={dashboardData.insights} />
+        <DataNumbersSection charts={dashboardData.charts} rows={dashboardData.metricsTable} />
+        <ArchitectureSection />
+        <RisksSection risks={dashboardData.risks} />
+        <HiddenSignalsSection hiddenSignals={dashboardData.hiddenSignals} />
+        <VerdictSection verdict={dashboardData.verdict} />
+      </main>
       <MobileNav sections={dashboardData.sections} />
       <BackToTop />
     </div>
