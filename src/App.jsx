@@ -52,6 +52,7 @@ function ManualRoutePage() {
     <>
       <Navbar sections={[]} />
       <ManualPage steps={dashboardData.manualSteps} />
+      <MobileNav sections={[]} />
     </>
   )
 }
@@ -63,6 +64,7 @@ function ContactRoutePage() {
     <>
       <Navbar sections={[]} />
       <ContactPage />
+      <MobileNav sections={[]} />
     </>
   )
 }
