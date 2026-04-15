@@ -3,6 +3,7 @@ import { useDashboardStore } from '../../store/dashboardStore'
 
 export default function Navbar({ sections }) {
   const activeSection = useDashboardStore((s) => s.activeSection)
+  const setActiveSection = useDashboardStore((s) => s.setActiveSection)
   const theme = useDashboardStore((s) => s.theme)
   const setTheme = useDashboardStore((s) => s.setTheme)
   const location = useLocation()
@@ -12,6 +13,13 @@ export default function Navbar({ sections }) {
 
   const routeLinkClass = (active) =>
     `rounded-full px-3 py-1 text-small ${active ? 'bg-accent-secondary text-white' : 'text-text-secondary'}`
+
+  const scrollToSection = (id) => {
+    const target = document.getElementById(id)
+    if (!target) return
+    setActiveSection(id)
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
 
   return (
     <header className="sticky top-0 z-40 border-b border-border-subtle bg-bg-overlay/95 backdrop-blur">
@@ -29,15 +37,16 @@ export default function Navbar({ sections }) {
               Contact Us
             </Link>
             {sections.map((section) => (
-              <a
+              <button
+                type="button"
                 key={section.id}
-                href={`#${section.id}`}
+                onClick={() => scrollToSection(section.id)}
                 className={`rounded-full px-3 py-1 text-small ${
                   activeSection === section.id ? 'bg-accent-primary text-white' : 'text-text-secondary'
                 }`}
               >
                 {section.label}
-              </a>
+              </button>
             ))}
           </nav>
           <button

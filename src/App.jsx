@@ -1,4 +1,4 @@
-import { HashRouter, Routes, Route } from 'react-router-dom'
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { dashboardData } from './data/dashboardData'
 import { useScrollSpy } from './hooks/useScrollSpy'
 import { useTheme } from './hooks/useTheme'
@@ -76,6 +76,7 @@ export default function App() {
         <Route path="/" element={<DashboardPage />} />
         <Route path="/manual" element={<ManualRoutePage />} />
         <Route path="/contact" element={<ContactRoutePage />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </HashRouter>
   )
