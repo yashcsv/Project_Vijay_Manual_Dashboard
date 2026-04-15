@@ -1,0 +1,135 @@
+@import '@fontsource/bebas-neue/400.css';
+@import '@fontsource/source-serif-4/400.css';
+@import '@fontsource/source-serif-4/600.css';
+@import '@fontsource/dm-mono/400.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-base: #f7f2e8;
+  --bg-surface: #fffaf0;
+  --bg-elevated: #ffffff;
+  --bg-overlay: rgba(253, 249, 239, 0.76);
+
+  --text-primary: #18140f;
+  --text-secondary: #30261a;
+  --text-muted: #66584a;
+  --text-disabled: #8f8378;
+
+  --accent-primary: #cf3d2e;
+  --accent-secondary: #113f67;
+  --accent-tertiary: #6f5f4f;
+
+  --semantic-positive: #16803c;
+  --semantic-negative: #b91c1c;
+  --semantic-warning: #b45309;
+  --semantic-neutral: #1d4ed8;
+
+  --border-default: rgba(24, 20, 15, 0.14);
+  --border-subtle: rgba(24, 20, 15, 0.08);
+  --border-strong: rgba(24, 20, 15, 0.24);
+
+  --shadow-sm: 0 6px 20px rgba(34, 26, 18, 0.07);
+  --shadow-md: 0 14px 38px rgba(34, 26, 18, 0.1);
+  --shadow-lg: 0 28px 70px rgba(34, 26, 18, 0.14);
+  --shadow-glow: 0 0 0 1px rgba(207, 61, 46, 0.2), 0 20px 60px rgba(207, 61, 46, 0.18);
+
+  --hero-blend-one: rgba(207, 61, 46, 0.07);
+  --hero-blend-two: rgba(17, 63, 103, 0.07);
+  --highlight-a: rgba(207, 61, 46, 0.16);
+  --highlight-b: rgba(17, 63, 103, 0.12);
+}
+
+[data-theme='dark'] {
+  --bg-base: #0f1319;
+  --bg-surface: #151d26;
+  --bg-elevated: #1b2430;
+  --bg-overlay: rgba(17, 24, 34, 0.82);
+
+  --text-primary: #f2f5f8;
+  --text-secondary: #d3dde7;
+  --text-muted: #9eb0c4;
+  --text-disabled: #7e8ea2;
+
+  --accent-primary: #ff6a5c;
+  --accent-secondary: #65b8ff;
+  --accent-tertiary: #9db2c7;
+
+  --semantic-positive: #4ade80;
+  --semantic-negative: #f87171;
+  --semantic-warning: #fbbf24;
+  --semantic-neutral: #60a5fa;
+
+  --border-default: rgba(213, 224, 235, 0.2);
+  --border-subtle: rgba(213, 224, 235, 0.12);
+  --border-strong: rgba(213, 224, 235, 0.34);
+
+  --shadow-sm: 0 8px 24px rgba(0, 0, 0, 0.28);
+  --shadow-md: 0 16px 42px rgba(0, 0, 0, 0.34);
+  --shadow-lg: 0 32px 80px rgba(0, 0, 0, 0.42);
+  --shadow-glow: 0 0 0 1px rgba(101, 184, 255, 0.28), 0 22px 66px rgba(101, 184, 255, 0.2);
+
+  --hero-blend-one: rgba(255, 106, 92, 0.11);
+  --hero-blend-two: rgba(101, 184, 255, 0.1);
+  --highlight-a: rgba(255, 106, 92, 0.22);
+  --highlight-b: rgba(101, 184, 255, 0.18);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: 'Source Serif 4', serif;
+  background: radial-gradient(circle at 10% 20%, var(--hero-blend-one) 0%, transparent 45%),
+    radial-gradient(circle at 80% 10%, var(--hero-blend-two) 0%, transparent 48%),
+    var(--bg-base);
+  color: var(--text-primary);
+}
+
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.card-surface {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  box-shadow: var(--shadow-sm);
+}
+
+.section-shell {
+  width: min(100%, 1280px);
+  margin-inline: auto;
+  padding-inline: 1.2rem;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+.highlight-card {
+  background: linear-gradient(130deg, var(--highlight-a) 0%, var(--highlight-b) 100%);
+  border: 1px solid var(--border-strong);
+  box-shadow: var(--shadow-glow);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
